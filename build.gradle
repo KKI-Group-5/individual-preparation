@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id "org.sonarqube" version "5.0.0.4638"
+	id 'jacoco'
 }
 
 group = 'com.example'
@@ -25,6 +26,18 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+jacoco {
+	toolVersion = "0.8.11" // This version is fully compatible with Gradle 8+
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+tasks.named('jacocoTestReport') {
+	dependsOn test // Tests must run before generating report
+	reports {
+		xml.required = true // SonarCloud needs XML reports
+	}
 }
