@@ -26,11 +26,7 @@ public class ArithmeticUtility {
     }
 
     public double exponent(double o1, int n) {
-
-        if ((o1 == 0.0) && (n < 0)) {
-            throw new IllegalArgumentException("Cannot raise zero to a negative power due to division by zero.");
-        }
-
-        return Math.pow(o1, n);
+        // TODO: Implement me properly!
+        return 0.0;
     }
 }
