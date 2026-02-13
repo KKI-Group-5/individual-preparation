@@ -116,4 +116,28 @@ class ArithmeticUtilityTest {
         // Assert: -5 * -2 = 10 (positive)
         assertEquals(10.0, result, 0.0001, "Negative multiplication failed");
     }
+
+    @Test
+    void testSubtractPositiveNumbers() {
+        double result = arithmeticUtility.subtract(10, 3);
+        assertEquals(7.0, result);
+    }
+
+    @Test
+    void testSubtractWithNegativeNumber() {
+        double result = arithmeticUtility.subtract(10, -5);
+        assertEquals(15.0, result);
+    }
+
+    @Test
+    void testSubtractBothNegative() {
+        double result = arithmeticUtility.subtract(-10, -5);
+        assertEquals(-5.0, result);
+    }
+
+    @Test
+    void testSubtractWithZero() {
+        double result = arithmeticUtility.subtract(10, 0);
+        assertEquals(10.0, result);
+    }
 }
