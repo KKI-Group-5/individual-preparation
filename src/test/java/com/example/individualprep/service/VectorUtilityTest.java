@@ -156,4 +156,56 @@ class VectorUtilityTest {
 
         assertArrayEquals(expected, result, 0.0001, "Negative multiplication failed");
     }
+
+    @Test
+    void testDotProductNormalCase() {
+        double[] v1 = {1.0, 2.0, 3.0};
+        double[] v2 = {4.0, 5.0, 6.0};
+
+        double result = vectorUtility.dotProduct(v1, v2);
+
+        assertEquals(32.0, result);
+    }
+
+    @Test
+    void testDotProductWithZeroVector() {
+        double[] v1 = {0.0, 0.0, 0.0};
+        double[] v2 = {1.0, 2.0, 3.0};
+
+        double result = vectorUtility.dotProduct(v1, v2);
+
+        assertEquals(0.0, result);
+    }
+
+    @Test
+    void testDotProductWithNegativeValues() {
+        double[] v1 = {-1.0, 2.0, -3.0};
+        double[] v2 = {4.0, -5.0, 6.0};
+
+        double result = vectorUtility.dotProduct(v1, v2);
+
+        // (-1*4) + (2*-5) + (-3*6)
+        // -4 -10 -18 = -32
+        assertEquals(-32.0, result);
+    }
+
+    @Test
+    void testDotProductDifferentLengthsThrowsException() {
+        double[] v1 = {1.0, 2.0};
+        double[] v2 = {1.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            vectorUtility.dotProduct(v1, v2);
+        });
+    }
+
+    @Test
+    void testDotProductNullVectorThrowsException() {
+        double[] v1 = null;
+        double[] v2 = {1.0, 2.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            vectorUtility.dotProduct(v1, v2);
+        });
+    }
 }
