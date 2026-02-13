@@ -19,13 +19,12 @@ public class VectorUtility {
         // TODO: Implement me properly!
         return new double[] { 0.0, 0.0, 0.0 };
     }
-
+    
     public double dotProduct(double[] v1, double[] v2) {
         // TODO: Implement me properly!
         return 0.0;
     }
-
-
+    
     public double norm(double[] v1) {
         // TODO: Implement me properly!
         return 0.0;
