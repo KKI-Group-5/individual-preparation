@@ -16,8 +16,8 @@ public class ArithmeticUtility {
     }
 
     public double multiply(double o1, double o2) {
-        // TODO: Implement me properly!
-        return 0.0;
+        // feat/arithmetic-multiply
+        return o1 * o2;
     }
 
     public double divide(double o1, double o2) {
@@ -26,7 +26,11 @@ public class ArithmeticUtility {
     }
 
     public double exponent(double o1, int n) {
-        // TODO: Implement me properly!
-        return 0.0;
+
+        if ((o1 == 0.0) && (n < 0)) {
+            throw new IllegalArgumentException("Cannot raise zero to a negative power due to division by zero.");
+        }
+
+        return Math.pow(o1, n);
     }
 }
